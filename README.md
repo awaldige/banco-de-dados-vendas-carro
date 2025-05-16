@@ -1,72 +1,87 @@
-# Banco de Dados para Sistema de Vendas de Carros
+# 🚗 Banco de Dados para Sistema de Vendas de Carros
 
 Este repositório contém o esquema completo do banco de dados para um sistema de vendas de carros, projetado para gerenciar informações de clientes, vendedores, carros, vendas e muito mais.
 
-## Visão Geral
+## 📌 Visão Geral
 
-Este banco de dados foi desenvolvido para suportar um sistema de gerenciamento de vendas de carros, abrangendo desde o cadastro de clientes e veículos até o registro de vendas e serviços de manutenção. Ele foi projetado para ser flexível e escalável, permitindo a fácil expansão de funcionalidades no futuro.
+Este banco de dados foi desenvolvido para suportar um sistema de gerenciamento de vendas de carros, abrangendo desde o cadastro de clientes e veículos até o registro de vendas e serviços de manutenção. Ele foi projetado para ser flexível e escalável, permitindo fácil expansão de funcionalidades no futuro.
 
-## Estrutura do Banco de Dados
+## 🧱 Estrutura do Banco de Dados
 
 O banco de dados é composto pelas seguintes tabelas:
 
-* **`Cliente`**: Armazena informações dos clientes (id\_cliente, nome, telefone, email).
-* **`Vendedor`**: Armazena informações dos vendedores (id\_vendedor, nome, telefone, email).
-* **`Gerente`**: Armazena informações dos gerentes (id\_gerente, nome, telefone, email).
-* **`Loja`**: Armazena informações das lojas e a relação com os gerentes (id\_loja, nome, endereco, id\_gerente).
-* **`Carro`**: Armazena informações dos carros e a relação com as lojas (id\_carro, modelo, ano, preco, id\_loja).
-* **`Acessorio`**: Lista de acessórios disponíveis para os carros (id\_acessorio, descricao).
-* **`Carro_Acessorio`**: Relação entre carros e seus acessórios (id\_carro, id\_acessorio).
-* **`Financeira`**: Lista de financeiras disponíveis para financiamento (id\_financeira, nome).
-* **`Banco`**: Lista de bancos para financiamento (id\_banco, nome).
-* **`TipoPagamento`**: Tipos de pagamento (À Vista, Financiamento) (id\_tipo\_pagamento, descricao).
-* **`Venda`**: Registra as vendas e as relações com clientes, vendedores, carros, tipos de pagamento, financeiras e bancos (id\_venda, id\_cliente, id\_vendedor, id\_carro, id\_tipo\_pagamento, id\_financeira, id\_banco, data\_venda, valor\_total).
-* **`Manutencao_Garantia`**: Registra as manutenções e garantias e as relações com carros e clientes (id\_manutencao, id\_carro, id\_cliente, descricao, data\_servico, custo).
+- **`Cliente`**: Armazena informações dos clientes (`id_cliente`, `nome`, `telefone`, `email`).
+- **`Vendedor`**: Armazena informações dos vendedores (`id_vendedor`, `nome`, `telefone`, `email`).
+- **`Gerente`**: Armazena informações dos gerentes (`id_gerente`, `nome`, `telefone`, `email`).
+- **`Loja`**: Armazena informações das lojas e sua relação com os gerentes (`id_loja`, `nome`, `endereco`, `id_gerente`).
+- **`Carro`**: Armazena informações dos carros e sua relação com as lojas (`id_carro`, `modelo`, `ano`, `preco`, `id_loja`).
+- **`Acessorio`**: Lista de acessórios disponíveis para os carros (`id_acessorio`, `descricao`).
+- **`Carro_Acessorio`**: Relação entre carros e seus acessórios (`id_carro`, `id_acessorio`).
+- **`Financeira`**: Lista de financeiras disponíveis para financiamento (`id_financeira`, `nome`).
+- **`Banco`**: Lista de bancos para financiamento (`id_banco`, `nome`).
+- **`TipoPagamento`**: Tipos de pagamento (`id_tipo_pagamento`, `descricao`).
+- **`Venda`**: Registra as vendas e suas relações com clientes, vendedores, carros, tipos de pagamento, financeiras e bancos (`id_venda`, `id_cliente`, `id_vendedor`, `id_carro`, `id_tipo_pagamento`, `id_financeira`, `id_banco`, `data_venda`, `valor_total`).
+- **`Manutencao_Garantia`**: Registra manutenções e garantias com relação a carros e clientes (`id_manutencao`, `id_carro`, `id_cliente`, `descricao`, `data_servico`, `custo`).
 
-## Diagrama ER
+## 🗺️ Diagrama Entidade-Relacionamento (ER)
 
-\[Aqui você pode inserir o diagrama Entidade-Relacionamento (ER) do banco de dados, se disponível.]
+O modelo Entidade-Relacionamento fornece uma visão clara da estrutura e das relações entre as tabelas do sistema.
 
-## Como Usar
+📎 **Arquivo disponível em**: [`modelo-entidade-relacional.png`](./modelo-entidade-relacional.png)
 
-### Pré-requisitos
+### 🔍 O que representa:
 
-* Um sistema de gerenciamento de banco de dados (SGBD) compatível com SQL (MySQL, PostgreSQL, SQLite, etc.).
+- Entidades como `Cliente`, `Venda`, `Carro`, `Loja`, `Vendedor`, entre outras.
+- Relacionamentos entre entidades, com seus respectivos cardinalidades (1:N, N:N).
+- Chaves primárias e estrangeiras que definem a integridade relacional.
 
-### Instalação
+> 💡 O diagrama pode ser visualizado para entender a lógica de modelagem aplicada e facilitar futuras alterações ou expansões.
 
-1.  Clone este repositório:
+## 🚀 Como Usar
 
-    ```bash git clone https://github.com/awaldige/vendas-carros-db.git
+### ✅ Pré-requisitos
 
-2.  Importe o arquivo `schema.sql` para o seu SGBD.
+- Um Sistema de Gerenciamento de Banco de Dados (SGBD) compatível com SQL, como MySQL, PostgreSQL ou SQLite.
 
-3.  (Opcional) Importe os dados de exemplo do arquivo `dados\_exemplo.sql` para popular o banco de dados.
+### ⚙️ Instalação
 
-### Exemplos de Uso
+1. Clone este repositório:
+    ```bash
+    git clone https://github.com/awaldige/vendas-carros-db.git
+    ```
 
-* Listar todos os carros disponíveis em uma loja:
+2. Importe o arquivo `schema.sql` no seu SGBD.
 
+3. (Opcional) Importe os dados de exemplo do arquivo `dados_exemplo.sql`.
+
+### 💡 Exemplos de Uso
+
+- **Listar todos os carros disponíveis em uma loja:**
     ```sql
     SELECT * FROM Carro WHERE id_loja = [id_da_loja];
     ```
 
-* Registrar uma nova venda:
-
+- **Registrar uma nova venda:**
     ```sql
-    INSERT INTO Venda (id_cliente, id_vendedor, id_carro, id_tipo_pagamento, data_venda, valor_total) VALUES ([id_cliente], [id_vendedor], [id_carro], [id_tipo_pagamento], [data_da_venda], [valor_total]);
+    INSERT INTO Venda (
+        id_cliente, id_vendedor, id_carro, id_tipo_pagamento,
+        data_venda, valor_total
+    ) VALUES (
+        [id_cliente], [id_vendedor], [id_carro],
+        [id_tipo_pagamento], [data_da_venda], [valor_total]
+    );
     ```
 
-## Contribuição
+## 🤝 Contribuição
 
-Contribuições são bem-vindas! Se você tiver alguma sugestão de melhoria ou correção, siga estas etapas:
+Contribuições são bem-vindas! Para colaborar:
 
-1.  Faça um fork deste repositório.
-2.  Crie uma branch com sua alteração: `git checkout -b minha-alteracao`.
-3.  Faça suas alterações e commit: `git commit -m 'Adiciona nova funcionalidade'`.
-4.  Envie suas alterações para o seu fork: `git push origin minha-alteracao`.
-5.  Abra um pull request neste repositório.
+1. Faça um fork do repositório.
+2. Crie uma branch: `git checkout -b minha-alteracao`.
+3. Realize as alterações e faça o commit: `git commit -m "Minha contribuição"`.
+4. Faça o push para sua branch: `git push origin minha-alteracao`.
+5. Abra um Pull Request.
 
-## Licença
+## 📄 Licença
 
-Este projeto está licenciado sob a licença \[MIT License] - veja o arquivo `LICENSE.md` para detalhes.
+Este projeto está licenciado sob a [Licença MIT](./LICENSE.md).
